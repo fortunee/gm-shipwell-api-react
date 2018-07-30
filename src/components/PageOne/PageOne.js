@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PageOneForm from './PageOneForm';
 
 class PageOne extends Component {
     constructor(props) {
@@ -22,15 +23,8 @@ class PageOne extends Component {
     }
 
     render() {
-        // const { user = {} } = this.state.data;
-        const { user } = this.state.data;
 
-        return (
-            <div>
-                <h1>PageOne</h1>
-                <h2>First name: {user.first_name}</h2>
-            </div>
-        )
+        return <PageOneForm />
     }
 }
 
