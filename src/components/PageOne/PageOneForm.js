@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class PageOneForm extends Component {
     constructor(props) {
@@ -24,6 +25,7 @@ class PageOneForm extends Component {
         const { to, from } = this.state;
         const addresses = { to, from }
         
+        this.props.addAddress(addresses);
     }
 
     render() {
@@ -41,4 +43,8 @@ class PageOneForm extends Component {
     }
 }
 
-export default PageOneForm
+PageOneForm.propTypes = {
+    addAddress: PropTypes.func.isRequired
+}
+
+export default PageOneForm;
