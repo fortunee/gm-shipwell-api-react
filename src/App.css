@@ -1,7 +1,5 @@
 .App {
   width: 90%;
-  margin: auto;
-  display: flex;
-  justify-content: center;
+  margin: 5px auto;
 }
 

@@ -40,14 +40,10 @@ class PageOneForm extends Component {
         return (
             <div className="page-form">
                 <form onSubmit={this.onSubmit}>
-                    <div>
                         <label>To: </label>
                         <input type="text" name="to" onChange={this.onChange} value={this.state.to}/>
-                    </div>
-                    <div>
                         <label>From: </label>
                         <input type="text" name="from" onChange={this.onChange} value={this.state.from}/>
-                    </div>
                     <button type="submit">Submit</button>
                 </form>
             </div>
