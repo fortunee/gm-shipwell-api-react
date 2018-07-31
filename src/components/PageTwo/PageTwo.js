@@ -24,7 +24,7 @@ PageTwo.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  user: state.user.user
+  user: state.userInfo.user
 });
 
 export default connect(mapStateToProps)(PageTwo);

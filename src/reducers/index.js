@@ -3,6 +3,6 @@ import userReducer from './user.reducer';
 import addressReducer from './address.reducer';
 
 export default combineReducers({
-    user: userReducer,
+    userInfo: userReducer,
     addresses: addressReducer
 })
