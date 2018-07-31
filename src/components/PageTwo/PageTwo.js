@@ -1,35 +1,26 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+
 import MyMapComponent from './PageTwoMap.jsx';
 
-
 class PageTwo extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   console.log('This is props', props);
-    
-  //   this.state = {
-  //       data: {
-  //           user: props.user.user || {},
-  //           company: props.user.company || {}
-  //       }
-  //   }
-  // }
-
-  // componentWillMount() {
-    
-  // }
-
   render() {
-    const { user = {} } = this.props.user;
+    const { user = {}, company = {} } = this.props.user;
     return (
       <div>
-        <h1>Map</h1>
         <h2>Name: {user.first_name} {user.last_name}</h2>
+        <h2>Email: {user.email}</h2>
+        <h2>Phone: {user.phone_number}</h2>
+        <h2>Company Name: {company.name}</h2>
         <MyMapComponent />
       </div>
     )
   }
+}
+
+PageTwo.propTypes = {
+  user: PropTypes.object
 }
 
 const mapStateToProps = state => ({
