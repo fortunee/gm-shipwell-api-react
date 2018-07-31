@@ -20,7 +20,7 @@ class PageTwo extends Component {
 }
 
 PageTwo.propTypes = {
-  user: PropTypes.object
+  user: PropTypes.object.isRequired
 }
 
 const mapStateToProps = state => ({
