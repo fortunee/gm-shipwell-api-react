@@ -4,5 +4,5 @@ import addressReducer from './address.reducer';
 
 export default combineReducers({
     userInfo: userReducer,
-    addresses: addressReducer
+    addressInfo: addressReducer
 });

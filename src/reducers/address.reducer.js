@@ -1,4 +1,4 @@
-import { FETCH_ADDRESSES, NEW_ADDRESS } from './../actions/types';
+import { NEW_ADDRESS } from './../actions/types';
 
 const initialState = {
     address: {}
@@ -6,7 +6,7 @@ const initialState = {
 
 export default (state = initialState, action) => {
     switch(action.type) {
-        case FETCH_ADDRESSES:
+        case NEW_ADDRESS:
             return {
                 ...state,
                 address: action.payload
