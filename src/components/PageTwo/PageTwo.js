@@ -13,7 +13,7 @@ class PageTwo extends Component {
         <h2>Email: {user.email}</h2>
         <h2>Phone: {user.phone_number}</h2>
         <h2>Company Name: {company.name}</h2>
-        <MyMapComponent />
+        <MyMapComponent address={this.props.address}/>
       </div>
     )
   }
@@ -24,7 +24,8 @@ PageTwo.propTypes = {
 }
 
 const mapStateToProps = state => ({
-  user: state.userInfo.user
+  user: state.userInfo.user,
+  address: state.addresInfo
 });
 
 export default connect(mapStateToProps)(PageTwo);
