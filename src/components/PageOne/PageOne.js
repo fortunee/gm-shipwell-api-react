@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import PageOneForm from './PageOneForm';
 import { fetchUser } from './../../actions/user.actions';
-import { addAddress } from './../../actions/address.actions';
+import { addToAddress, addFromAddress } from './../../actions/address.actions';
 
 class PageOne extends Component {
     componentWillMount() {
@@ -13,13 +13,19 @@ class PageOne extends Component {
 
     render() {
 
-        return <PageOneForm addAddress={this.props.addAddress}/>
+        return (
+            <PageOneForm
+                addToAddress={this.props.addToAddress}
+                addFromAddress={this.props.addFromAddress}
+            />
+        )
     }
 }
 
 PageOne.propTypes = {
     fetchUser: PropTypes.func.isRequired,
-    addAddress: PropTypes.func.isRequired
+    addToAddress: PropTypes.func.isRequired,
+    addFromAddress: PropTypes.func.isRequired
 }
 
-export default connect(null, { fetchUser, addAddress })(PageOne);
+export default connect(null, { fetchUser, addToAddress, addFromAddress })(PageOne);

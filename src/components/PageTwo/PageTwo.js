@@ -6,6 +6,7 @@ import MyMapComponent from './PageTwoMap.jsx';
 
 class PageTwo extends Component {
   render() {
+    console.log(this.props.address)
     const { user = {}, company = {} } = this.props.user;
     return (
       <div>
@@ -25,7 +26,7 @@ PageTwo.propTypes = {
 
 const mapStateToProps = state => ({
   user: state.userInfo.user,
-  address: state.addresInfo
+  address: state.address
 });
 
 export default connect(mapStateToProps)(PageTwo);
