@@ -12,13 +12,9 @@ const google = window.google = window.google ? window.google : {}
 class MyMapComponent extends Component {
   constructor(props) {
     super(props);
-    // this.state = {
-    //   error: 'some error'
-    // }
   }
 
   render() {
-    // {this.state.error && <h4>{this.state.error}</h4>}
     const DirectionsComponent = compose(
         withProps({
           googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDFGmYrvEbJ4rWLqG_JXjZtnDRZWiO38PU&v=3.exp&libraries=geometry,drawing,places",
@@ -50,8 +46,7 @@ class MyMapComponent extends Component {
                   directions: result,
                 });
               } else {
-                console.log(`error fetching directions ${result}`, result);
-                this.setState({ error: `error fetching directions ${result}` })
+                console.error(`error fetching directions ${result}`);
               }
             });
           }

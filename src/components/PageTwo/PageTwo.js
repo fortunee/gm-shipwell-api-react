@@ -6,7 +6,6 @@ import MyMapComponent from './PageTwoMap.jsx';
 
 class PageTwo extends Component {
   render() {
-    console.log(this.props.address)
     const { user = {}, company = {} } = this.props.user;
     return (
       <div>
