@@ -12,12 +12,13 @@ const google = window.google = window.google ? window.google : {}
 class MyMapComponent extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      error: ''
-    }
+    // this.state = {
+    //   error: 'some error'
+    // }
   }
 
   render() {
+    // {this.state.error && <h4>{this.state.error}</h4>}
     const DirectionsComponent = compose(
         withProps({
           googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyDFGmYrvEbJ4rWLqG_JXjZtnDRZWiO38PU&v=3.exp&libraries=geometry,drawing,places",
@@ -56,12 +57,14 @@ class MyMapComponent extends Component {
           }
         })
       )(props =>
-        <GoogleMap
-          defaultZoom={7}
-          defaultCenter={new google.maps.LatLng(41.8507300, -87.6512600)}
-        >
-          {props.directions && <DirectionsRenderer directions={props.directions} />}
-        </GoogleMap>
+        <div>
+          <GoogleMap
+            defaultZoom={7}
+            defaultCenter={new google.maps.LatLng(41.8507300, -87.6512600)}
+            >
+            {props.directions && <DirectionsRenderer directions={props.directions} />}
+          </GoogleMap>
+        </div>
       )
       return <DirectionsComponent address={this.props.address}/>
   }

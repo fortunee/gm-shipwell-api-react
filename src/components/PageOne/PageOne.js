@@ -7,17 +7,45 @@ import { fetchUser } from './../../actions/user.actions';
 import { addToAddress, addFromAddress } from './../../actions/address.actions';
 
 class PageOne extends Component {
+    constructor(props) {
+        super(props);
+
+        this.displayWarnings = this.displayWarnings.bind(this);
+    }
+
     componentWillMount() {
         this.props.fetchUser();
     }
+    
+    /** Same technique can be used to display errors */
+    displayWarnings (toAddressWarnings = [], fromAddressWarnings = []) {
+        const warnings = [...toAddressWarnings, ...fromAddressWarnings];
+        return (
+            <div>
+                {warnings.length ? 'Warnings' : ''}
+                <ul>
+                    {warnings.map((warning, _id) => (
+                        <li key={_id}>
+                            <h4>{warning}</h4>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        )
+    }
 
     render() {
+        const { toAddress, fromAddress  } = this.props;
+        const displayWarning = this.displayWarnings(toAddress.warnings, fromAddress.warnings);
 
         return (
-            <PageOneForm
-                addToAddress={this.props.addToAddress}
-                addFromAddress={this.props.addFromAddress}
-            />
+            <div>
+                {displayWarning}
+                <PageOneForm
+                    addToAddress={this.props.addToAddress}
+                    addFromAddress={this.props.addFromAddress}
+                />
+            </div>
         )
     }
 }
@@ -25,7 +53,14 @@ class PageOne extends Component {
 PageOne.propTypes = {
     fetchUser: PropTypes.func.isRequired,
     addToAddress: PropTypes.func.isRequired,
-    addFromAddress: PropTypes.func.isRequired
+    addFromAddress: PropTypes.func.isRequired,
+    toAddress: PropTypes.object,
+    fromAddress: PropTypes.object
 }
 
-export default connect(null, { fetchUser, addToAddress, addFromAddress })(PageOne);
+const mapStateToProps = state => ({
+    toAddress: state.address.to,
+    fromAddress: state.address.from
+});
+
+export default connect(mapStateToProps, { fetchUser, addToAddress, addFromAddress })(PageOne);
