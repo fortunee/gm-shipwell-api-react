@@ -51,7 +51,7 @@ class PageOneForm extends Component {
                     <button type="submit">Validate</button>
                 </form>
 
-                <button><NavLink to="/">View Direction</NavLink></button>
+                <button><NavLink to="/map">View Direction</NavLink></button>
             </div>
         )
     }
